@@ -1,6 +1,6 @@
-# chatgpt-prompts-kr
+# prompts-kr
 
-chatgpt 한국어 프롬프트 공유 사이트
+한국어 프롬프트 공유 사이트
 
 ## 왜?
 
