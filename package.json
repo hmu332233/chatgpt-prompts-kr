@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "site:dev": "pnpm --filter site dev"
   },
   "devDependencies": {
     "husky": "^8.0.0",
