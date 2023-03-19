@@ -5,9 +5,7 @@ type LayoutProps = {
 };
 
 function Layout({ children }: LayoutProps) {
-  return (
-    <div className="flex flex-wrap min-h-screen bg-gray-50">{children}</div>
-  );
+  return <div className="flex flex-wrap min-h-screen">{children}</div>;
 }
 
 type SideProps = {
@@ -16,7 +14,7 @@ type SideProps = {
 
 function Side({ children }: SideProps) {
   return (
-    <div className="w-full lg:w-60 lg:max-w-mdp-4 bg-gray-50">
+    <div className="w-full lg:w-64 lg:max-w-mdp-4 py-10 text-white bg-gray-900">
       <Container fluid>{children}</Container>
     </div>
   );
@@ -28,7 +26,7 @@ type BodyProps = {
 
 function Body({ children }: BodyProps) {
   return (
-    <div className="w-full lg:w-auto lg:flex-1 mt-4 lg:mt-0 bg-white">
+    <div className="w-full lg:w-auto lg:flex-1 py-10 mt-4 lg:mt-0 bg-white">
       <Container fluid>{children}</Container>
     </div>
   );
