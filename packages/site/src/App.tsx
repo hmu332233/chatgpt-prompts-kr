@@ -2,6 +2,8 @@ import Layout from './components/Layout';
 import CardList from './components/CardList';
 import CategoryList from './components/CategoryList';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 const items = [
   {
     id: '1',
@@ -41,6 +43,10 @@ const items = [
 ];
 
 const categories = [
+  {
+    id: '0',
+    text: '🔍 전체',
+  },
   {
     id: '1',
     text: '🤖 인공지능',
@@ -85,24 +91,28 @@ const categories = [
 
 function App() {
   return (
-    <Layout>
-      <Layout.Side>
-        <h2 className="text-2xl font-bold mb-4">카테고리</h2>
-        <CategoryList items={categories} />
-      </Layout.Side>
-      <Layout.Body>
-        <h1 className="text-4xl font-bold uppercase">Prompts-kr</h1>
-        <h4 className="text-xl font-semibold">
-          Prompts-kr에 오신 것을 환영합니다!
-          <br />
-          수많은 한국어 ChatGPT 프롬프트를 찾아보고, 아이디어를 공유할 수
-          있습니다.
-          <br />
-          다양한 분야와 주제로 활용 가능한 프롬프트가 기다리고 있습니다.
-        </h4>
-        <CardList items={items} />
-      </Layout.Body>
-    </Layout>
+    <Router>
+      <Layout>
+        <Layout.Side>
+          <h2 className="text-2xl font-bold mb-4">카테고리</h2>
+          <CategoryList items={categories} />
+        </Layout.Side>
+        <Layout.Body>
+          <h1 className="text-4xl font-bold uppercase">Prompts-kr</h1>
+          <h4 className="text-xl font-semibold mb-16">
+            Prompts-kr에 오신 것을 환영합니다!
+            <br />
+            수많은 한국어 ChatGPT 프롬프트를 찾아보고, 아이디어를 공유할 수
+            있습니다.
+            <br />
+            다양한 분야와 주제로 활용 가능한 프롬프트가 기다리고 있습니다.
+          </h4>
+          <Routes>
+            <Route path=":categoryId" element={<CardList items={items} />} />
+          </Routes>
+        </Layout.Body>
+      </Layout>
+    </Router>
   );
 }
 
