@@ -8,6 +8,7 @@ type Props = {
     title: string;
     contents: string;
     category: string;
+    upvotes: number;
   }>;
 };
 
@@ -15,12 +16,13 @@ function CardList({ items }: Props) {
   const { categoryId } = useParams();
   return (
     <div className="flex flex-col gap-8">
-      {items.slice(0, parseInt(categoryId!)).map((item) => (
+      {items.map((item) => (
         <Card
           key={item.id}
           title={item.title}
           contents={item.contents}
           category={item.category}
+          upvotes={item.upvotes}
         />
       ))}
     </div>
